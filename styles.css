@@ -204,7 +204,7 @@
     border-radius: 8px;
     background: #ffffff;
     color: #111827;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 13px;
     line-height: 1.45;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
@@ -219,6 +219,10 @@
     margin: 0;
 }
 
+.map-info-box strong {
+    font-weight: 700;
+}
+
 .map-info-box p {
     margin-top: 6px;
     color: #334155;
@@ -228,7 +232,7 @@
     max-width: 760px;
     margin: 0 auto 22px;
     padding: 0 28px;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .map-legend-title {
@@ -255,7 +259,7 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     margin-top: 6px;
-    color: #111827;
+    color: #475569;
     font-size: 12px;
     font-weight: 700;
 }
@@ -269,7 +273,7 @@
     align-items: center;
     gap: 20px;
     padding: 0 32px 30px;
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 14px;
     background: #ffffff;
     border-top: 1px solid #e5e7eb;
@@ -277,8 +281,8 @@
 
 .map-controls label {
     white-space: nowrap;
-    color: #374151;
-    font-weight: 600;
+    color: #111827;
+    font-weight: 700;
 }
 
 .slider-wrap {
