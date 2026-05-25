@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-3.4.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+</head>
+
+<body>
+    <main>
+        <h1 class="mainHeading">Fish Stocks Data Visualisation</h1>
+
+        <section class="graph-card cod-hero-card" aria-labelledby="graph1-title">
+            <div class="cod-hero-header">
+                <div class="cod-hero-info">
+                    <span class="cod-kicker">Eastern Canada</span>
+                    <h2 id="graph1-title">Northern Atlantic cod catch</h2>
+                    <p>How industrial fishing pressure, changing fish size, and policy decisions shaped long-term cod catch.</p>
+                </div>
+
+                <div class="cod-range-buttons" aria-label="Choose cod chart time range">
+                    <button class="active" type="button" data-range="all">Full history</button>
+                    <button type="button" data-range="collapse">Collapse years</button>
+                    <button type="button" data-range="recent">Recent years</button>
+                </div>
+            </div>
+
+            <div class="cod-chart-wrap">
+                <div id="graph1" class="plot cod-plot"></div>
+            </div>
+
+            <button id="cod-events-toggle" class="cod-events-toggle" type="button" aria-expanded="false">Key Events</button>
+            <div id="cod-events" class="cod-events"></div>
+        </section>
+
+        <section class="graph-card graph-with-legend" aria-label="Fish stocks relative to sustainable yield">
+            <div id="graph2" class="plot"></div>
+            <div id="fish-controls" class="checkbox-controls" aria-label="Choose fish lines"></div>
+        </section>
+
+        <section class="graph-card map-card" aria-label="Capture fishery production map">
+            <div class="map-chart-wrap">
+                <div id="graph3" class="plot map-plot"></div>
+                <button id="map-info-button" class="map-info-button" type="button" aria-label="Open map information" aria-expanded="false">i</button>
+                <div id="map-info-box" class="map-info-box"></div>
+            </div>
+            <div id="map-legend" class="map-legend"></div>
+
+            <div class="map-controls">
+                <label for="year-slider">Compare year</label>
+                <div class="slider-wrap">
+                    <span id="selected-year" class="year-box"></span>
+                    <input id="year-slider" type="range">
+                </div>
+            </div>
+        </section>
+
+        <section class="graph-card fish-profile-card" aria-label="Fish stock profile">
+            <div id="fish-profile-tabs" class="fish-profile-tabs"></div>
+
+            <div class="fish-profile-main">
+                <div id="fish-profile-info" class="fish-profile-info"></div>
+                <div id="graph4" class="plot fish-profile-plot"></div>
+            </div>
+
+            <button id="compare-fish-toggle" class="compare-fish-toggle" type="button" aria-expanded="false">
+                Fish Stocks Comparison
+            </button>
+
+            <div id="compare-fish-panel" class="compare-fish-panel">
+                <div class="compare-fish-content">
+                    <div id="graph4-compare" class="plot compare-fish-plot"></div>
+                    <div id="graph4-compare-controls" class="compare-fish-controls" aria-label="Choose fish for comparison"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="graphs/graph1.js"></script>
+    <script src="graphs/graph2.js"></script>
+    <script src="graphs/graph3.js"></script>
+    <script src="graphs/graph4.js"></script>
+</body>
+</html>
