@@ -1,3 +1,4 @@
+// Controls story progression, section unlocking, and delayed chart loading.
 document.addEventListener("DOMContentLoaded", () => {
     const storyContainer = document.getElementById("story-container");
     const storySteps = [...document.querySelectorAll(".story-step")];

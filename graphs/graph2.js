@@ -3,10 +3,12 @@ const fishStockColumn = "Total biomass relative to maximum sustainable yield";
 const fishStockColors = ["#636efa", "#ef553b", "#00cc96", "#ab63fa", "#ffa15a", "#19d3f3"];
 let fishStockData = [];
 
+// Gets the unique fish stock names from the dataset.
 function getEntities(data) {
     return [...new Set(data.map(row => row.Entity))];
 }
 
+// Creates one Plotly line trace for a fish stock.
 function makeTrace(data, entity, color) {
     const entityData = data.filter(row => row.Entity === entity);
 
@@ -21,6 +23,7 @@ function makeTrace(data, entity, color) {
     };
 }
 
+// Creates the Plotly layout for the fish stock comparison chart.
 function makeLayout() {
     return {
         title: {
@@ -65,11 +68,13 @@ function makeLayout() {
     };
 }
 
+// Reads the selected fish checkboxes from the controls panel.
 function getSelectedEntities() {
     return [...document.querySelectorAll("#fish-controls input:checked")]
         .map(checkbox => checkbox.value);
 }
 
+// Creates one checkbox control and colour swatch for a fish line.
 function makeCheckbox(entity, color, checked) {
     const label = document.createElement("label");
     const checkbox = document.createElement("input");
@@ -90,6 +95,7 @@ function makeCheckbox(entity, color, checked) {
     return label;
 }
 
+// Draws all checkbox controls for the available fish stocks.
 function drawControls(data) {
     const controls = document.getElementById("fish-controls");
     const entities = getEntities(data);
@@ -99,6 +105,7 @@ function drawControls(data) {
     });
 }
 
+// Redraws the chart using only the fish selected in the controls.
 function drawGraph() {
     const entities = getEntities(fishStockData);
     const selectedEntities = getSelectedEntities();
@@ -110,6 +117,7 @@ function drawGraph() {
     Plotly.newPlot("graph2", traces, makeLayout(), { responsive: true });
 }
 
+// Loads the CSV and starts graph2 with its controls.
 d3.csv(fishStockFile).then(data => {
     fishStockData = data;
     drawControls(data);

@@ -1,3 +1,4 @@
+// Sets up the intro video screen, cursor reveal, and Enter-to-continue behavior.
 document.addEventListener("DOMContentLoaded", () => {
     const introLoader = document.getElementById("intro-loader");
     const leftLens = document.getElementById("mask-left-lens");
