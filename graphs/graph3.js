@@ -1,6 +1,6 @@
 const captureFile = "data/capture-fishery-production.csv";
 const captureColumn = "Capture fisheries production (metric tons)";
-const mapColors = ["#d8e8f3", "#b7d4e8", "#85b9d9", "#4f97c8", "#2171b5", "#0b4f8a", "#08306b"];
+const mapColors = ["#f6edcf", "#e4ead0", "#cce5ce", "#a8dcca", "#5bc8cb", "#3c7d7b", "#1f3838"];
 const legendBreaks = [0, 10000, 100000, 500000, 1000000, 5000000, 10000000];
 const legendLabels = ["0", "10k", "100k", "500k", "1M", "5M", "10M+"];
 const mapFont = {
@@ -66,7 +66,12 @@ function makeMapTrace(year, geoName) {
         geo: geoName,
         showscale: false,
         hoverlabel: {
-            font: mapFont
+            bgcolor: "#0f172a",
+            bordercolor: "#ffffff",
+            font: {
+                ...mapFont,
+                color: "#ffffff"
+            }
         },
         hovertemplate: "%{text}<br>%{z:,.0f} metric tons<extra></extra>"
     };
@@ -128,8 +133,24 @@ function makeComparisonLayout(selectedYear) {
         geo: makeGeoLayout({ x: [0, 0.47], y: [0, 1] }),
         geo2: makeGeoLayout({ x: [0.53, 1], y: [0, 1] }),
         annotations: [
-            { text: selectedYear, x: 0.24, y: 1, xref: "paper", yref: "paper", showarrow: false, font: { ...mapFont, size: 13 } },
-            { text: latestYear, x: 0.76, y: 1, xref: "paper", yref: "paper", showarrow: false, font: { ...mapFont, size: 13 } }
+            {
+                text: `<b>${selectedYear}</b>`,
+                x: 0.24,
+                y: 1,
+                xref: "paper",
+                yref: "paper",
+                showarrow: false,
+                font: { ...mapFont, color: "#0f172a", size: 15 }
+            },
+            {
+                text: `<b>${latestYear}</b>`,
+                x: 0.76,
+                y: 1,
+                xref: "paper",
+                yref: "paper",
+                showarrow: false,
+                font: { ...mapFont, color: "#0f172a", size: 15 }
+            }
         ],
         dragmode: false,
         paper_bgcolor: "#ffffff",

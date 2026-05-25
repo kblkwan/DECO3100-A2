@@ -23,8 +23,6 @@ body.intro-active {
 }
 
 #intro-loader {
-    --reveal-x: 50vw;
-    --reveal-y: 50vh;
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -32,12 +30,6 @@ body.intro-active {
     background: #000000;
     opacity: 1;
     transition: opacity 700ms ease, visibility 700ms ease;
-}
-
-#intro-loader.intro-complete {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
 }
 
 #intro-loader.intro-docked {

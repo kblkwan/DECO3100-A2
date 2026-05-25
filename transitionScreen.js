@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const script = document.createElement("script");
         script.src = chartScript;
-        script.dataset.storyChart = "true";
         document.body.appendChild(script);
     }
 
