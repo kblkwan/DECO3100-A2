@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const lensRadius = 120;
     const lensGap = 130;
-    const fadeDuration = 700;
     const revealDelay = 1900;
     let hasFinished = false;
     let canReveal = false;
@@ -44,20 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Fades out the intro, restores page scrolling, then removes the loader from the DOM.
+    // Converts the intro from a fixed loader into a normal top-of-page title screen.
     function finishIntro() {
         if (hasFinished) {
             return;
         }
 
         hasFinished = true;
-        introLoader.classList.add("intro-complete");
+        introLoader.classList.add("intro-docked");
         document.body.style.overflow = "auto";
         document.body.classList.remove("intro-active");
-
-        setTimeout(() => {
-            introLoader.remove();
-        }, fadeDuration);
+        document.dispatchEvent(new CustomEvent("introLoaderComplete"));
     }
 
     // Tracks cursor movement across the intro so the reveal follows the user's hover position.

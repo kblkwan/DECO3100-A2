@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    background: #f8fafc;
+}
+
 .graph-card {
     width: min(900px, calc(100% - 32px));
     margin: 24px auto;
@@ -33,6 +38,18 @@ body.intro-active {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
+}
+
+#intro-loader.intro-docked {
+    position: relative;
+    min-height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#intro-loader.intro-docked .intro-continue {
+    display: none;
 }
 
 .intro-video,
@@ -126,6 +143,104 @@ body.intro-active {
     font-family: Arial, sans-serif;
     font-size: 17px;
     line-height: 1.7;
+}
+
+.article-text p {
+    margin: 0 0 18px;
+}
+
+.article-text p:last-child {
+    margin-bottom: 0;
+}
+
+.article-kicker {
+    display: block;
+    margin-bottom: 12px;
+    color: #0f766e;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.article-text h2 {
+    margin: 0 0 22px;
+    color: #111827;
+    font-family: Arial, sans-serif;
+    font-size: 38px;
+    line-height: 1.05;
+}
+
+.story-step {
+    position: relative;
+}
+
+.story-step.graph-card {
+    margin-top: 96px;
+    margin-bottom: 96px;
+    box-shadow:
+        0 12px 32px rgba(15, 23, 42, 0.16),
+        0 0 0 100vmax #1f3a45;
+    clip-path: inset(-72px -100vmax);
+}
+
+#story-container::after {
+    content: "";
+    display: block;
+    height: 55vh;
+}
+
+#story-container.story-complete::after {
+    display: none;
+}
+
+.story-step.locked {
+    display: none !important;
+}
+
+.story-step.unlocked {
+    display: block;
+    animation: storyStepIn 700ms ease both;
+}
+
+.article-step.story-step.unlocked {
+    display: flex;
+}
+
+.story-step.active .story-continue {
+    opacity: 1;
+    transform: translateX(-50%);
+}
+
+.article-step {
+    min-height: 100vh;
+    align-items: center;
+}
+
+.story-continue {
+    position: fixed;
+    left: 50%;
+    bottom: 28px;
+    z-index: 50;
+    color: #475569;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translate(-50%, 10px);
+    transition: opacity 350ms ease, transform 350ms ease;
+}
+
+@keyframes storyStepIn {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Restore a larger height for graph1 so it appears prominent */
