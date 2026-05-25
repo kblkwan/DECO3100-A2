@@ -9,9 +9,37 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 </head>
 
-<body>
+<body class="intro-active">
+    <section id="intro-loader" aria-label="Intro loading animation">
+        <video class="intro-video" autoplay muted loop playsinline preload="auto">
+            <source src="designElements/whale.mp4" type="video/mp4">
+        </video>
+        <svg class="black-overlay" aria-hidden="true">
+            <defs>
+                <filter id="binocular-blur">
+                    <feGaussianBlur stdDeviation="16"></feGaussianBlur>
+                </filter>
+                <mask id="binocular-mask">
+                    <rect width="100%" height="100%" fill="white"></rect>
+                    <g filter="url(#binocular-blur)">
+                        <circle id="mask-left-lens" cx="-200" cy="0" r="80" fill="#4d4d4d"></circle>
+                        <circle id="mask-right-lens" cx="-200" cy="0" r="80" fill="#4d4d4d"></circle>
+                    </g>
+                </mask>
+            </defs>
+            <rect class="overlay-fill" width="100%" height="100%" mask="url(#binocular-mask)"></rect>
+        </svg>
+        <div class="intro-copy">
+            <div class="intro-text">How well do you know the ocean?</div>
+            <div class="intro-byline">By: Kieu-An Nguyen</div>
+        </div>
+        <div class="intro-continue">Press Enter to continue</div>
+    </section>
+
     <main>
-        <h1 class="mainHeading">Fish Stocks Data Visualisation</h1>
+        <div class="article-text">
+            Fifty years ago, cod populations were perceived as inexhaustible, with production levels believed to be both abundant and sustainable. By 1992, that narrative had collapsed. The convergence of several factors including rapid advancements in fishing technology, the overestimation of fish population, and widespread government mismanagement, created the ideal conditions for the annihilation of the species. At the time, the moratorium announced that only 1% of the cod’s historic population remained, making it one of the most significant collapses in modern marine history. The cod collapse continues to foreshadow the same cycles of exploitation and ecological collapse unfolding across our oceans today.
+        </div>
 
         <section class="graph-card cod-hero-card" aria-labelledby="graph1-title">
             <div class="cod-hero-header">
@@ -41,6 +69,10 @@
             <div id="fish-controls" class="checkbox-controls" aria-label="Choose fish lines"></div>
         </section> -->
 
+        <div class="article-text">
+            When the cod disappeared, the ocean fell silent in ways statistics could never fully capture. The disappearance of cod represented more than economic devastation. As one of the North Atlantic’s dominant predators vanished, the balance of the marine food web began to unravel, permanently altering the ecosystem’s equilibrium. Species once regulated by cod populations rapidly expanded, while ecological relationships refined over centuries collapsed within decades. Crab and shrimp populations temporarily flourished, while lower trophic levels experienced cascading disruptions that rippled throughout the food web. Scientists describe this phenomenon as a trophic cascade, yet the term scarcely encapsulates the major scale of transformation that followed in marine hierarchy. Consequently, the ocean could not heal after the collapse. Instead, its structures adapted into something fundamentally different.
+        </div>
+
         <section class="graph-card map-card" aria-label="Capture fishery production map">
             <div class="map-chart-wrap">
                 <div id="graph3" class="plot map-plot"></div>
@@ -57,6 +89,10 @@
                 </div>
             </div>
         </section>
+
+        <div class="article-text">
+            Since then, the same narrative has unfolded across oceans worldwide. From the collapse of Peru’s anchoveta fisheries to the decline of bluefin tuna and sharks, industrial fishing has repeatedly extracted marine life faster than ecosystems can recover, a pattern that emerges consistently across multiple ocean systems. In particular, post WW2 technological innovation significantly increased the efficiency of industry systems, where sonar mapping, factory trawlers, and globalised trade enabled extraction on unprecedented scales. Processes that once required generations of labour could now be achieved within years. Yet despite the evolution of technology, environmental regulation and political intervention consistently lagged behind.
+        </div>
 
         <section class="graph-card fish-profile-card" aria-label="Fish stock profile">
             <div id="fish-profile-tabs" class="fish-profile-tabs"></div>
@@ -77,11 +113,16 @@
                 </div>
             </div>
         </section>
+
+        <div class="article-text">
+            The future trajectory of our ocean bleeds red. For centuries, marine ecosystems have been treated as resources to consume rather than living systems to protect. This is a dangerous illusion that ocean systems possess an infinite capacity to reproduce and endure extraction. While governments, corporations, and scientific institutions play a significant role in shaping environmental outcomes, responsibility does not end there. The cumulative decisions made by ordinary individuals everyday also impacts our environment. Choices surrounding consumption, waste, sustainability, and political accountability collectively influence the pace and scale of ecological degradation. If society continues to remain passive, this transformation will not occur as a single catastrophic moment, but gradually, until collapse is normalised and no longer irreversible. What we choose to do now will determine our future.
+        </div>
     </main>
 
     <script src="graphs/graph1.js"></script>
     <script src="graphs/graph2.js"></script>
     <script src="graphs/graph3.js"></script>
     <script src="graphs/graph4.js"></script>
+    <script src="loadscreen.js"></script>
 </body>
 </html>

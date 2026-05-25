@@ -110,7 +110,7 @@ function makeSingleLayout(year) {
         dragmode: false,
         paper_bgcolor: "#ffffff",
         font: mapFont,
-        margin: { t: 86, l: 14, r: 14, b: 6 }
+        margin: { t: 100, l: 14, r: 14, b: 6 }
     };
 }
 

@@ -13,6 +13,121 @@
     height: 480px;
 }
 
+body.intro-active {
+    overflow: hidden;
+}
+
+#intro-loader {
+    --reveal-x: 50vw;
+    --reveal-y: 50vh;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    overflow: hidden;
+    background: #000000;
+    opacity: 1;
+    transition: opacity 700ms ease, visibility 700ms ease;
+}
+
+#intro-loader.intro-complete {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-video,
+.black-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.intro-video {
+    object-fit: cover;
+}
+
+.black-overlay {
+    z-index: 1;
+}
+
+.overlay-fill {
+    fill: rgba(2, 12, 30, 0.85);
+}
+
+.intro-copy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
+    width: min(900px, calc(100% - 48px));
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.intro-text {
+    margin: 0;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: center;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.intro-byline {
+    margin-top: 24px;
+    color: rgba(255, 255, 255, 0.82);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateY(18px);
+}
+
+#intro-loader.is-playing .intro-text {
+    animation: introTextIn 1200ms ease forwards 450ms;
+}
+
+#intro-loader.is-playing .intro-byline {
+    animation: introTextIn 1000ms ease forwards 800ms;
+}
+
+.intro-continue {
+    position: absolute;
+    left: 50%;
+    bottom: 56px;
+    z-index: 4;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    opacity: 1;
+    transform: translate(-50%, 0);
+    transition: opacity 600ms ease, transform 600ms ease;
+}
+
+@keyframes introTextIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.article-text {
+    max-width: 720px;
+    margin: 32px auto;
+    padding: 0 16px;
+    color: #334155;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
 /* Restore a larger height for graph1 so it appears prominent */
 #graph1 {
     height: 500px;
